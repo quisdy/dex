@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<title>Панель администратора</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<!-- ХЕДЕР АДМИНИСТРАТОРА (без создания заявок) -->
+		<header class="navbar navbar-expand-md">
+			<div class="container">
+				<a class="navbar-brand text-light fw-bold" href="#">Конференции.РФ |
+					Админ</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#adminNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="adminNavbar">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link active" href="admin.html">Панель
+								управления</a></li>
+						<li class="nav-item"><a class="nav-link" href="login.html">Выйти</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="container">
+			<div
+				class="alert-success d-flex justify-content-between align-items-center p-3 mb-4"
+				role="alert">
+				<span>Статус заявки успешно изменён.</span>
+				<button type="button" class="btn-close btn-close-white"
+					data-bs-dismiss="toast" aria-label="Закрыть"></button>
+			</div>
+
+			<div class="filter-bar">
+				<div class="row g-3 align-items-end">
+					<div class="col-md-4">
+						<label for="statusFilter" class="form-label text-secondary">Фильтр по
+							статусу</label>
+						<select class="form-select" id="statusFilter">
+							<option value="all">Все статусы</option>
+							<option value="new">Новая</option>
+							<option value="assigned">Мероприятие назначено</option>
+							<option value="completed">Мероприятие завершено</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<label for="roomFilter" class="form-label text-secondary">Фильтр по
+							помещению</label>
+						<select class="form-select" id="roomFilter">
+							<option value="all">Все помещения</option>
+							<option value="Аудитория">Аудитория</option>
+							<option value="Коворкинг">Коворкинг</option>
+							<option value="Кино-зал">Кино-зал</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<label for="sortOrder"
+							class="form-label text-secondary">Сортировка</label>
+						<select class="form-select" id="sortOrder">
+							<option value="date_asc">По дате (сначала старые)</option>
+							<option value="date_desc" selected>По дате (сначала новые)</option>
+							<option value="status">По статусу</option>
+							<option value="room">По помещению</option>
+						</select>
+					</div>
+				</div>
+				<div class="mt-3 text-end">
+					<button class="btn btn-outline-secondary btn-sm">Применить
+						фильтры</button>
+				</div>
+			</div>
+
+			<div class="row g-4">
+				<div class="col-md-6 col-lg-4">
+					<div class="card admin-card bg-dark text-light border-secondary h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<h5 class="card-title">Аудитория</h5>
+								<span class="status-badge status-new">Новая</span>
+							</div>
+							<p class="card-text text-secondary mt-2">
+								<strong>Дата:</strong> 15.12.2026<br>
+								<strong>Оплата:</strong> Банковская карта<br>
+								<strong>Заявитель:</strong> Иванов И.И.
+							</p>
+							<div class="mt-3">
+								<label class="form-label text-secondary small">Изменить статус</label>
+								<div class="d-flex gap-2">
+									<select class="form-select status-select">
+										<option value="1" selected>Новая</option>
+										<option value="2">Мероприятие назначено</option>
+										<option value="3">Мероприятие завершено</option>
+									</select>
+									<button class="btn btn-sm btn-primary">Обновить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="card admin-card bg-dark text-light border-secondary h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<h5 class="card-title">Коворкинг</h5>
+								<span class="status-badge status-assigned">Мероприятие назначено</span>
+							</div>
+							<p class="card-text text-secondary mt-2">
+								<strong>Дата:</strong> 10.11.2026<br>
+								<strong>Оплата:</strong> Наличные<br>
+								<strong>Заявитель:</strong> Петрова А.С.
+							</p>
+							<div class="mt-3">
+								<label class="form-label text-secondary small">Изменить статус</label>
+								<div class="d-flex gap-2">
+									<select class="form-select status-select">
+										<option value="1">Новая</option>
+										<option value="2" selected>Мероприятие назначено</option>
+										<option value="3">Мероприятие завершено</option>
+									</select>
+									<button class="btn btn-sm btn-primary">Обновить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="card admin-card bg-dark text-light border-secondary h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<h5 class="card-title">Кино-зал</h5>
+								<span class="status-badge status-completed">Мероприятие завершено</span>
+							</div>
+							<p class="card-text text-secondary mt-2">
+								<strong>Дата:</strong> 05.09.2026<br>
+								<strong>Оплата:</strong> Перевод по телефону<br>
+								<strong>Заявитель:</strong> Сидоров В.В.
+							</p>
+							<div class="mt-3">
+								<label class="form-label text-secondary small">Изменить статус</label>
+								<div class="d-flex gap-2">
+									<select class="form-select status-select">
+										<option value="1">Новая</option>
+										<option value="2">Мероприятие назначено</option>
+										<option value="3" selected>Мероприятие завершено</option>
+									</select>
+									<button class="btn btn-sm btn-primary">Обновить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="card admin-card bg-dark text-light border-secondary h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<h5 class="card-title">Аудитория</h5>
+								<span class="status-badge status-new">Новая</span>
+							</div>
+							<p class="card-text text-secondary mt-2">
+								<strong>Дата:</strong> 20.01.2027<br>
+								<strong>Оплата:</strong> Банковская карта<br>
+								<strong>Заявитель:</strong> Козлова Д.М.
+							</p>
+							<div class="mt-3">
+								<label class="form-label text-secondary small">Изменить статус</label>
+								<div class="d-flex gap-2">
+									<select class="form-select status-select">
+										<option value="1" selected>Новая</option>
+										<option value="2">Мероприятие назначено</option>
+										<option value="3">Мероприятие завершено</option>
+									</select>
+									<button class="btn btn-sm btn-primary">Обновить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="card admin-card bg-dark text-light border-secondary h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<h5 class="card-title">Коворкинг</h5>
+								<span class="status-badge status-assigned">Мероприятие назначено</span>
+							</div>
+							<p class="card-text text-secondary mt-2">
+								<strong>Дата:</strong> 28.02.2027<br>
+								<strong>Оплата:</strong> Наличные<br>
+								<strong>Заявитель:</strong> Морозов Е.А.
+							</p>
+							<div class="mt-3">
+								<label class="form-label text-secondary small">Изменить статус</label>
+								<div class="d-flex gap-2">
+									<select class="form-select status-select">
+										<option value="1">Новая</option>
+										<option value="2" selected>Мероприятие назначено</option>
+										<option value="3">Мероприятие завершено</option>
+									</select>
+									<button class="btn btn-sm btn-primary">Обновить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="card admin-card bg-dark text-light border-secondary h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-start">
+								<h5 class="card-title">Кино-зал</h5>
+								<span class="status-badge status-completed">Мероприятие завершено</span>
+							</div>
+							<p class="card-text text-secondary mt-2">
+								<strong>Дата:</strong> 14.12.2026<br>
+								<strong>Оплата:</strong> Банковская карта<br>
+								<strong>Заявитель:</strong> Соколова И.П.
+							</p>
+							<div class="mt-3">
+								<label class="form-label text-secondary small">Изменить статус</label>
+								<div class="d-flex gap-2">
+									<select class="form-select status-select">
+										<option value="1">Новая</option>
+										<option value="2">Мероприятие назначено</option>
+										<option value="3" selected>Мероприятие завершено</option>
+									</select>
+									<button class="btn btn-sm btn-primary">Обновить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<nav aria-label="Навигация по страницам" class="mt-5">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"><a class="page-link" href="#"
+							tabindex="-1">Назад</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Вперёд</a></li>
+				</ul>
+			</nav>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<p class="text-center small">&copy; 2026 Все права защищены.
+					Конференции.РФ</p>
+				<p class="text-center"><strong>Для удобства навигации</strong></p>
+				<ul class="navbar-nav text-center ms-auto">
+					<li class="nav-item"><a class="nav-link active"
+							href="registration.html">Панель
+							Регистрация</a></li>
+					<li class="nav-item"><a class="nav-link" href="login.html">Вход</a></li>
+					<li class="nav-item"><a class="nav-link"
+							href="application_form.html">Оформление
+							заявки</a></li>
+					<li class="nav-item"><a class="nav-link" href="my_lk.html">Мои
+							заявки</a></li>
+					<li class="nav-item"><a class="nav-link" href="admin.html">Админка</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
